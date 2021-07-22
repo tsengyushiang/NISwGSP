@@ -1,5 +1,5 @@
 # NISwGSP
-C++ implementation of the ECCV 2016 paper, Natural Image Stitching with the Global Similarity Prior (Windows Visual Studio 15.7 Version)
+C++ implementation of the ECCV 2016 paper, Natural Image Stitching with the Global Similarity Prior (Windows Visual Studio 2019 Version)
 
 ### Attention please!!
 1. This project is not mine, I solely just port it to the Visual Studio 15.7. So, if you use any code or data from this project, please cite the original author work:
@@ -17,6 +17,10 @@ C++ implementation of the ECCV 2016 paper, Natural Image Stitching with the Glob
 2. Therefore, if you have any questions regarding the content (algorithm or data) or there is some feature in the project that is not clear (how to run your own image for example), please refer to the original author github at https://github.com/nothinglo/NISwGSP :D
 3. However, if you have any problems with the porting to Visual Studio, feel free create issues here. I actually have not tried to test this git outside my working PC so it is possible the steps I write here miss several details.
 4. I do not fork the original author git directly. I cloned it (anyway, I actually cloned the ubuntu version at https://github.com/Yannnnnnnnnnnn/NISwGSP), then ported it in my pc, then init the github repository, then upload my local work to the github.
+### Requriement Download
+
+- [Dirent](https://github.com/tronkko/dirent)
+- [Opencv340 vc14 lib](https://sourceforge.net/projects/opencvlibrary/files/opencv-win/)
 
 ### How to set it up
 *You need to have opencv (the original author used 3.0 version but I used the 3.4 version) and dirent for windows. My opencv is built with cuda and many local dependencies so I think it will probably not working in your PC even though if I share the binary files here. As for dirent, I think (I actually already forgot how I got it) you can clone it from https://github.com/tronkko/dirent

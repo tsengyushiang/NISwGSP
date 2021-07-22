@@ -1,0 +1,8 @@
+*global_homography_max_inliers_dist 5.0
+*local_homogrpahy_max_inliers_dist 3.0
+*local_homography_min_features_count 40
+images_count 2
+center_image_index 1
+center_image_rotation_angle 0.0
+matching_graph_image_edges-0 1
+matching_graph_image_edges-1 0
