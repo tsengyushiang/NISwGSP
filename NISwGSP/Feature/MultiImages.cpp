@@ -1042,15 +1042,35 @@ Mat MultiImages::textureMapping(const vector<vector<Point2> > & _vertices,
             }
         }
        
-        imwrite(parameter.debug_dir + parameter.file_name + std::to_string(i) + ".wrapped.png", image);
         _warp_images.emplace_back(image);
         origins.emplace_back(rects[i].x, rects[i].y);
         if(_blend_method != BLEND_AVERAGE) {
             new_weight_mask.emplace_back(w_mask);
         }
     }
-    
-    return Blending(_warp_images, origins, _target_size, new_weight_mask, _blend_method == BLEND_AVERAGE);
+
+    vector<Rect2> rects2;
+    rects2.reserve(origins.size());
+    for (int i = 0; i < origins.size(); ++i) {
+        rects2.emplace_back(origins[i], _warp_images[i].size());
+    }
+    for (int i = 0; i < rects2.size(); ++i) {
+        cv::Mat result = cv::Mat::zeros(round(_target_size.height), round(_target_size.width), CV_8UC4);
+        for (int y = 0; y < result.rows; ++y) {
+            for (int x = 0; x < result.cols; ++x) {
+                cv::Point2i p(x, y);
+                cv::Point2i pv(round(x - origins[i].x), round(y - origins[i].y));
+                if (pv.x >= 0 && pv.x < _warp_images[i].cols &&
+                    pv.y >= 0 && pv.y < _warp_images[i].rows) {
+                    cv::Vec4b v = _warp_images[i].at<cv::Vec4b>(pv);
+                    cv::Vec3f value = cv::Vec3f(v[0], v[1], v[2]);
+                    result.at<cv::Vec4b>(p) = v;
+                }
+            }
+        }
+        imwrite(parameter.result_dir + parameter.file_name + std::to_string(i) + ".wrapped.png", result);    
+    }
+    return Blending(_warp_images, origins, _target_size, new_weight_mask, _blend_method == BLEND_AVERAGE);    
 }
 
 void MultiImages::writeResultWithMesh(const Mat & _result,
