@@ -46,8 +46,8 @@ using namespace Eigen;
 /******************************/
 
 /*** data setting ***/
-const int GRID_SIZE = 40;
-const int DOWN_SAMPLE_IMAGE_SIZE = 800 * 600;
+const int GRID_SIZE = 50;
+const int DOWN_SAMPLE_IMAGE_SIZE = 1500 * 1000 ;
 
 /*** APAP ***/
 const double APAP_GAMMA = 0.0015;
@@ -63,17 +63,17 @@ const double  LOCAL_HOMOGRAPHY_MAX_INLIERS_DIST   = 3.;
 const    int  LOCAL_HOMOGRAPHY_MIN_FEATURES_COUNT = 40;
 
 /*** vlfeat sift ***/
-const    int SIFT_LEVEL_COUNT          = 3;
+const    int SIFT_LEVEL_COUNT          = 8;
 const    int SIFT_MINIMUM_OCTAVE_INDEX = 0;
 const double SIFT_PEAK_THRESH = 0.;
-const double SIFT_EDGE_THRESH = 10.;
+const double SIFT_EDGE_THRESH = 20;
 
 /*** init feature ***/
 const double INLIER_TOLERANT_STD_DISTANCE = 4.25; /* mean + 4.25 * std */
 
 /*** sRANSAC ***/
-const double GLOBAL_TRUE_PROBABILITY = 0.225;
-const double LOCAL_TRUE_PROBABILITY = 0.2;
+const double GLOBAL_TRUE_PROBABILITY =0.025;
+const double LOCAL_TRUE_PROBABILITY = 0.0225;
 const double OPENCV_DEFAULT_CONFIDENCE = 0.995;
 
 /*** sparse linear system ***/
@@ -108,7 +108,9 @@ enum BLENDING_METHODS {
 const string BLENDING_METHODS_NAME[BLEND_METHODS_SIZE] = {
     "[BLEND_AVERAGE]", "[BLEND_LINEAR]"
 };
-
+enum REGION {
+    LEFT = 0, RIGHT
+};
 
 /* type */
 typedef float FLOAT_TYPE;

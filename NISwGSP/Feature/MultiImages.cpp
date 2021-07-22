@@ -1041,6 +1041,8 @@ Mat MultiImages::textureMapping(const vector<vector<Point2> > & _vertices,
                 }
             }
         }
+       
+        imwrite(parameter.debug_dir + parameter.file_name + std::to_string(i) + ".wrapped.png", image);
         _warp_images.emplace_back(image);
         origins.emplace_back(rects[i].x, rects[i].y);
         if(_blend_method != BLEND_AVERAGE) {

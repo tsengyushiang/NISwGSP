@@ -25,8 +25,8 @@ int main(int argc, const char * argv[]) {
         timer.start();
         /* 2D */
         NISwGSP_Stitching niswgsp(multi_images);
-        niswgsp.setWeightToAlignmentTerm(1);
-        niswgsp.setWeightToLocalSimilarityTerm(0.75);
+        niswgsp.setWeightToAlignmentTerm(0.25);
+        niswgsp.setWeightToLocalSimilarityTerm(1.0);
         niswgsp.setWeightToGlobalSimilarityTerm(6, 20, GLOBAL_ROTATION_2D_METHOD);
         niswgsp.writeImage(niswgsp.solve(BLEND_AVERAGE), BLENDING_METHODS_NAME[BLEND_AVERAGE]);
         niswgsp.writeImage(niswgsp.solve(BLEND_LINEAR),  BLENDING_METHODS_NAME[BLEND_LINEAR]);
