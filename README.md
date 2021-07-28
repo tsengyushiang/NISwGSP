@@ -1,3 +1,11 @@
+# Quick Start
+
+- build project and open cmd in `your project\NISwGSP\x64\Release`
+- run `.\NISwGSP.exe human`
+- find aligned result 
+	- `your project\NISwGSP\x64\Release\Input-42-data\0_results\human-result\human0.wrapped.png`
+	- `your project\NISwGSP\x64\Release\Input-42-data\0_results\human-result\human1.wrapped.png`
+
 # NISwGSP
 C++ implementation of the ECCV 2016 paper, Natural Image Stitching with the Global Similarity Prior (Windows Visual Studio 2019 Version)
 
